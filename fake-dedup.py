@@ -42,6 +42,8 @@ if __name__ == "__main__":
     toplev = True
 
     for (dirpath, dirnames, filenames) in os.walk("."):
+        if dirpath == dbdir:
+            continue
         if toplev:
             for d in dirnames:
                 path = os.path.join(dirpath, d)
@@ -50,8 +52,6 @@ if __name__ == "__main__":
                     print ("skipping", path, "because it is too new")
                     del dirnames[dirnames.index(d)]
             toplev = False
-            continue
-        if dirpath == dbdir:
             continue
         for f in filenames:
             path = os.path.join(dirpath, f)

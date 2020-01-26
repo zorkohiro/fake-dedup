@@ -32,12 +32,12 @@ one suffices with hardlinks into the directories keeping things the same.
 There are obvious limitations here. The timestamp is the most obvious
 one. Because there was already a policy in place of deleting build
 data for builds over a week old, doing this only on week old or older
-trees made sense- the weren't going to be rebuilt out of this source
+trees made sense- they weren't going to be rebuilt out of this source
 tree anyway. The trees stayed populated with files and the git repo
-was intact so, for forensic purposes, you could biseect some problem
+was intact, so for forensic purposes you could bisect some problem
 to this release and look at the state of the source for it (the whole
-object of this exercise, really). If you needed to rebuild and modify,
-you can do that elsewhere.
+object of this exercise). If you needed to rebuild and modify, you can
+do that elsewhere.
 
 There are other obvious problems. If you remove some object file or
 otherwise unlink things, the dictionary gets some challenges. I've mostly
