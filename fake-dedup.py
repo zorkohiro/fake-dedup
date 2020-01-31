@@ -36,8 +36,7 @@ if __name__ == "__main__":
     except:
         pass
 
-    #cutoff = int(time.time()) - (7 * 24 * 60 * 60)
-    cutoff = int(time.time()) - 30
+    cutoff = int(time.time()) - (7 * 24 * 60 * 60)
     toplev = True
 
     for (dirpath, dirnames, filenames) in os.walk("."):
