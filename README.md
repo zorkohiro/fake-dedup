@@ -22,12 +22,10 @@ do hard links with the previous lkml version if the files were identical.
 For this, I took a different approach and decided that md5sum was
 an adequate file fingerprint mechanism. The idea here is to walk a
 base directory and for each regular file in a file path, look up in a
-dictionary whether it exists. If not, do an md5sum on it and put it in
-the dictionary. If the md5sum name is a file under the special directory
-under the base directory exist, remove the path link and replace it with
-a hardlink to this file, else create one with a hard link. Rather than
-250 versions of Makefile in the top of each nearly identical build tree,
-one suffices with hardlinks into the directories keeping things the same.
+side directory whether the hash as a file exists. If it doesn't this
+is the first entry of the hash, so create a link to the original file.
+If it exists, then unlink the path and hard link it to the common hash
+file.
 
 There are obvious limitations here. The timestamp is the most obvious
 one. Because there was already a policy in place of deleting build
@@ -42,4 +40,4 @@ do that elsewhere.
 There are other obvious problems. If you remove some object file or
 otherwise unlink things, the dictionary gets some challenges. I've mostly
 dealt with that by checking for the hash named common file for having
-a single link- removing that and cleaning it from the database.
+a single link- just remove it.
