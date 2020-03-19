@@ -12,7 +12,7 @@ I trimmed builds and just kept the images, .git and source tree for things
 older than a week, it's still a ridiculous amount of identical data.
 
 I tried ZFS on linux for a while and got a superb amount of deduplication
-with that, but for my taste ZFS is far to memory consumptive and unstable
+with that, but for my taste ZFS is far too memory consumptive and unstable
 to be trusted in linux at this time, so I went back to using XFS.
 
 I'd had a similar problem to solve when trying to keep online every single
